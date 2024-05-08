@@ -46,3 +46,4 @@ model gambar {
   objek_wisata_id String
   objek_wisata    objek_wisata @relation(fields: [objek_wisata_id], references: [id], onDelete: Cascade)
 }
+
