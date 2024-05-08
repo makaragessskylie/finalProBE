@@ -12,7 +12,6 @@ const createDestination = async (payload) => {
     },
   });
 };
-
 const findAllDestination = async () => {
   return await prisma.objek_wisata.findMany({
     include: {
@@ -20,7 +19,6 @@ const findAllDestination = async () => {
     },
   });
 };
-
 const findDestinationById = async (id) => {
   return await prisma.objek_wisata.findUnique({
     where: {
@@ -31,7 +29,6 @@ const findDestinationById = async (id) => {
     },
   });
 };
-
 const updateDestination = async (id, payload) => {
   const { nama, alamat, keterangan, waktu_operasional } = payload;
   return await prisma.objek_wisata.update({
@@ -47,9 +44,16 @@ const updateDestination = async (id, payload) => {
   });
 };
 
+const deleteDestination = async (id) => {
+  return await prisma.objek_wisata.delete({
+    where: { id },
+  });
+};
+
 module.exports = {
   createDestination,
   findAllDestination,
   findDestinationById,
   updateDestination,
+  deleteDestination,
 };

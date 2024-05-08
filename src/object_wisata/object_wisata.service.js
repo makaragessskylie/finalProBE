@@ -3,6 +3,7 @@ const {
     findAllDestination,
     findDestinationById,
     updateDestination,
+    deleteDestination,
   } = require("./object_wisata.repository");
   
   const createNewDestination = async (payload) => {
@@ -20,7 +21,6 @@ const {
     }
     return await createDestination(payload);
   };
-  
   const getAllDestination = async () => {
     const data = await findAllDestination();
     const normalize = data.map((item) => ({
@@ -31,7 +31,6 @@ const {
     }));
     return normalize;
   };
-  
   const getDestinationById = async (id) => {
     const data = await findDestinationById(id);
     if (!data) {
@@ -45,9 +44,12 @@ const {
     };
     return normalize;
   };
-  
   const updateDestinationData = async (id, payload) => {
     return await updateDestination(id, payload);
+  };
+  
+  const removeDestination = async (id) => {
+    return await deleteDestination(id);
   };
   
   module.exports = {
@@ -55,4 +57,5 @@ const {
     getAllDestination,
     getDestinationById,
     updateDestinationData,
+    removeDestination,
   };
