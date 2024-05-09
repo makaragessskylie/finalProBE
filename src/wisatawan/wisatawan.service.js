@@ -1,6 +1,7 @@
 const {
     createWisatawan,
     findWisatawanByUniqueKey,
+    findAllWisatawan,
   } = require("./wisatawan.repository");
   
   const createNewWisatawan = async (payload) => {
@@ -8,10 +9,8 @@ const {
     if (!email || !password || !nama || !alamat || !no_hp) {
       throw new Error("All fields are required");
     }
-  
     return await createWisatawan(payload);
   };
-  
   const loginWisatawan = async (payload) => {
     const { email, password } = payload;
     if (!email || !password) {
@@ -27,7 +26,21 @@ const {
     return data;
   };
   
+  const getWisatawan = async (id) => {
+    const data = await findWisatawanByUniqueKey({ id });
+    if (!data) {
+      throw new Error("Wisatawan not found");
+    }
+    return data;
+  };
+  
+  const getAllWisatawan = async () => {
+    return await findAllWisatawan();
+  };
+  
   module.exports = {
     createNewWisatawan,
     loginWisatawan,
+    getWisatawan,
+    getAllWisatawan,
   };
