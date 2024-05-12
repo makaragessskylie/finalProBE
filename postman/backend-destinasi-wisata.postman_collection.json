@@ -1,0 +1,394 @@
+{
+  "info": {
+    "_postman_id": "9b625bda-5e66-472d-91d5-253317a38c76",
+    "name": "backend-destinasi-wisata",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32654513"
+  },
+  "item": [
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"admin@mail.com\",\r\n    \"password\": \"12345\",\r\n    \"nama\": \"John Doe\",\r\n    \"alamat\": \"Airmadidi\",\r\n    \"no_hp\": \"0812345667\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/admin/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["admin", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@mail.com\",\r\n    \"password\": \"12345\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/admin/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["admin", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"oldPassword\": \"qwerty\",\r\n    \"newPassword\": \"12345\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/admin/change-password/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["admin", "change-password", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "clvt008fc0000bsurqm6j816l"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Account",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/admin/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["admin", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "clvt008fc0000bsurqm6j816l"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Objek Wisata",
+      "item": [
+        {
+          "name": "Create Destination",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": [
+                    "/C:/Users/huhi/OneDrive/Pictures/06+Social+media+growth+10-year+chart+-+DataReportal+20220124+Digital+2022+Global+Overview+Report+v01+Slide+88.png",
+                    "/C:/Users/huhi/OneDrive/Pictures/360_F_554477926_yKEcMeDTD1oLqKQCjvpryeT5zHLMunNh.jpg"
+                  ]
+                },
+                {
+                  "key": "nama",
+                  "value": "Bunaken",
+                  "type": "text"
+                },
+                {
+                  "key": "alamat",
+                  "value": "Manado",
+                  "type": "text"
+                },
+                {
+                  "key": "keterangan",
+                  "value": "Bunaken adalah taman laut",
+                  "type": "text"
+                },
+                {
+                  "key": "waktu_operasional",
+                  "value": "Senin - Jumat 8.30 - 18.00 WITA",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/destination",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["destination"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Destination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/destination",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["destination"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Destination by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/destination/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["destination", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "clvtijljg0000h2rvfqpxgqkcd"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Destination",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nama\": \"Bunaken 2\",\r\n    \"alamat\": \"\",\r\n    \"keterangan\": \"\",\r\n    \"waktu_operasional\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/destination/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["destination", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "clvtijljg0000h2rvfqpxgqkc"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Destination",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/destination/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["destination", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "clvtijljg0000h2rvfqpxgqkc"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Wisatawan",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"wisatawan@mail.com\",\r\n    \"password\": \"12345\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/wisatawan/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["wisatawan", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"wisatawan@mail.com\",\r\n    \"password\": \"12345\",\r\n    \"nama\": \"Alexander Doe\",\r\n    \"alamat\": \"Manado\",\r\n    \"no_hp\": \"0834672368462\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/wisatawan/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["wisatawan", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Wisatawan by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/wisatawan/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["wisatawan", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "clvtk2nld0000vz1h7y7oyirj"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Wisatawan",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/wisatawan/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["wisatawan", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Wisatawan",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"\",\r\n    \"nama\": \"\",\r\n    \"alamat\": \"\",\r\n    \"no_hp\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/wisatawan/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["wisatawan", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "clvtk2nld0000vz1h7y7oyirj"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Wisatawan",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/wisatawan/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["wisatawan", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "clvtk2nld0000vz1h7y7oyirj"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
